@@ -1,0 +1,93 @@
+<div class="container">
+<form method="post" action="http://localhost:7001/adduser">
+{{#unless list}}
+  <fieldset>
+    
+    <legend>Add Employee</legend>
+  
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">EmpId</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="staticEmail" name="id">
+      </div>
+    </div>
+    <br>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Employee Name</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="staticEmail" name="name" >
+      </div>
+    </div>
+    <br/>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Employee Salary</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="staticEmail" name="salary" >
+      </div>
+    </div>
+        <br/>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">
+        Employee City
+      </label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="staticEmail" name="city">
+      </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" fdprocessedid="bl7cda">Submit</button>
+  </fieldset>
+  <br/>
+  <a href="http://localhost:7001/getdata" class="btn btn block btn-lg btn-success">Show All Employee</a>
+  {{/unless}}
+</form>
+</div>
+
+
+
+<div class="container">
+  {{#if list}}
+<form method="post" action="http://localhost:7001/newly">
+  <fieldset>
+    <legend>Add Employee</legend>
+  {{#each list}}
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">EmpId</label>
+      <div class="col-sm-10">
+        <input type="text"  value="{{this.Empid}}" class="form-control" id="staticEmail" name="id" readonly>
+      </div>
+    </div>
+    <br>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Employee Name</label>
+      <div class="col-sm-10">
+        <input type="text" value="{{this.Empname}}" class="form-control" id="staticEmail" name="name" >
+      </div>
+    </div>
+    <br/>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Employee Salary</label>
+      <div class="col-sm-10">
+        <input type="text" value="{{this.Empsalary}}" class="form-control" id="staticEmail" name="salary" >
+      </div>
+    </div>
+        <br/>
+        <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">
+        Employee City
+      </label>
+      <div class="col-sm-10">
+        <input type="text" value="{{this.Empcity}}" class="form-control" id="staticEmail" name="city">
+      </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" fdprocessedid="bl7cda">Submit</button>
+  </fieldset>
+  <br/>
+  {{/each}}
+</form>
+{{/if}}
+
+</div>
+
+
