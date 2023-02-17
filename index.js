@@ -1,9 +1,10 @@
 const express=require("express")
 const app=express()
 const engine = require('express-handlebars').engine
+const cors=require("cors")
 const db=require("./model/connection")
 
-
+app.use(cors())
 app.use(express.json())   // midlleware 
 app.use(express.urlencoded({extended:true}))
 app.engine('handlebars', engine());
@@ -36,7 +37,8 @@ app.get("/getdata",(req,res)=>{
    db.query(sql,(err,result)=>{
    if(err) throw err
    else {
-    res.render('show',{list:result})
+    res.json(result)
+    // res.render('show',{list:result})
    }
    })
    
